@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Define the character encoding for the document -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set the viewport width and initial scale for responsiveness -->
+  <title>GDC-TourVT</title> <!-- Title of the webpage -->
+  <link rel="icon" type="image/png" href="img/empresa.png"> <!-- Link to the favicon -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- Link to Bootstrap CSS -->
+  <style>
+    .divider:after, <!-- Styling for divider pseudo-elements -->
+    .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+    }
+    .h-custom { <!-- Custom height class -->
+    height: calc(100% - 73px);
+    }
+    @media (max-width: 450px) { <!-- Media query for smaller screens -->
+    .h-custom {
+    height: 100%;
+    }
+    }
+  </style>
+</head>
+
+<body>
+    <section class="vh-100"> <!-- Section with 100vh height -->
+        <div class="container-fluid h-custom"> <!-- Fluid container with custom height -->
+          <div class="row d-flex justify-content-center align-items-center h-100"> <!-- Row with flex properties -->
+            <div class="col-md-9 col-lg-6 col-xl-5"> <!-- Columns with responsive classes -->
+              <img src="img\logo.png" class="img-fluid" alt="Sample image"> <!-- Image with fluid responsiveness -->
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1"> <!-- Another column with offset -->
+              <form> <!-- Form -->
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                </div>
+                <h3 class="text-lg-center">Sign in</h3> <!-- Heading for sign-in -->
+                <div class="divider d-flex align-items-center my-4"><br> <!-- Divider with margin -->
+                  </div>
+                <!-- Email input -->
+                <div class="form-outline mb-4"> <!-- Form input with outline and margin -->
+                  <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="" /> <!-- Email input field -->
+                  <label class="form-label" for="form3Example3">Email address</label> <!-- Label for email input -->
+                </div>
+                <!-- Password input -->
+                <div class="form-outline mb-3"> <!-- Form input with outline and margin -->
+                  <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="" /> <!-- Password input field -->
+                  <label class="form-label" for="form3Example4">Password</label> <!-- Label for password input -->
+                </div>
+                <div class="d-flex justify-content-between align-items-center"> <!-- Flexbox container -->
+                  <!-- Checkbox -->
+                  <div class="form-check mb-0"> <!-- Form check input -->
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" /> <!-- Checkbox input -->
+                    <label class="form-check-label" for="form2Example3">
+                      Remember me <!-- Checkbox label -->
+                    </label>
+                  </div>
+                  <a href="#!" class="text-body">Forgot password?</a> <!-- Forgot password link -->
+                </div>
+                <div class="text-center text-lg-start mt-4 pt-2"> <!-- Text alignment and margin -->
+                  <a href="html/seleccion-tour.html"> <!-- Link to another page -->
+                    <button type="button" class="btn btn-danger btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> <!-- Login button -->
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+        <footer class="bg-body-tertiary text-center text-lg-start bg-dark"> <!-- Footer styling -->
+            <!-- Copyright -->
+            <div class="text-center p-3 text-white mb-3 mb-md-0" style="background-color: rgba(0, 0, 0, 0.05);"> <!-- Footer text -->
+              Copyright © 2024. All rights reserved. <!-- Copyright notice -->
+            </div>
+            <!-- Copyright -->
+          </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script> <!-- Popper.js library -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+</body>
+</html>
