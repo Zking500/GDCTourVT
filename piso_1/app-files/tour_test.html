@@ -1,55 +1,83 @@
-<!DOCTYPE html> <!-- Declares the document type as HTML -->
-<html> <!-- Opens the HTML root element -->
-<head> <!-- Contains metadata about the HTML document -->
-<title>Piso_1</title> <!-- Sets the title of the page -->
-<meta charset="utf-8"> <!-- Defines the character encoding for the document -->
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" /> <!-- Sets the viewport for responsive design -->
-<style> @-ms-viewport { width: device-width; } </style> <!-- Defines styles for Microsoft-specific viewports -->
-<link rel="stylesheet" href="vendor/reset.min.css"> <!-- Links the CSS reset stylesheet -->
-<link rel="stylesheet" href="style.css"> <!-- Links the main stylesheet for the page -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GDC-TOURVT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+  <style> @-ms-viewport { width: device-width; } </style>
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="multiple-scenes view-control-buttons">
 
-<body class="multiple-scenes view-control-buttons"> <!-- Defines the body of the HTML document with specific classes -->
+<div id="pano"></div>
 
-<div id="pano"></div> <!-- Creates a div element with the ID "pano" for displaying panoramic images -->
-
-<div id="sceneList"> <!-- Creates a div for the scene list -->
-  <ul class="scenes"> <!-- Creates an unordered list for scenes -->
-    <!-- Scene items -->
-    <a href="javascript:void(0)" class="scene" data-id="0-programacin">
-      <li class="text">Programación</li> <!-- Scene item with text -->
-    </a>
-    <!-- Other scene items follow a similar structure -->
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-programacin">
+        <li class="text">Programación</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="1-ac">
+        <li class="text">AC</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="2-marketing-">
+        <li class="text">Marketing </li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="3-descanso-">
+        <li class="text">Descanso </li>
+      </a>
+    
   </ul>
 </div>
 
-<div id="titleBar"> <!-- Creates a div for the title bar -->
-  <h1 class="sceneName"></h1> <!-- Heading for the scene name -->
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
 </div>
 
-<!-- Toggle buttons for autorotation, fullscreen, and scene list -->
 <a href="javascript:void(0)" id="autorotateToggle">
-  <!-- Images for autorotate toggle button -->
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
 </a>
+
 <a href="javascript:void(0)" id="fullscreenToggle">
-  <!-- Images for fullscreen toggle button -->
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
 </a>
+
 <a href="javascript:void(0)" id="sceneListToggle">
-  <!-- Images for scene list toggle button -->
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
 </a>
 
-<!-- View control buttons for navigation -->
 <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <!-- Image for view up button -->
+  <img class="icon" src="img/up.png">
 </a>
-<!-- Other view control buttons follow a similar structure -->
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
 
-<!-- JavaScript libraries and scripts -->
-<script src="vendor/screenfull.min.js" ></script> <!-- Includes screenfull library for fullscreen functionality -->
-<script src="vendor/bowser.min.js" ></script> <!-- Includes Bowser library for browser detection -->
-<script src="vendor/marzipano.js" ></script> <!-- Includes Marzipano library for panoramic views -->
-<script src="data.js"></script> <!-- Includes data for scenes -->
-<script src="index.js"></script> <!-- Includes JavaScript for page functionality -->
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
 
-</body> <!-- Closes the body of the HTML document -->
-</html> <!-- Closes the HTML root element -->
+<script src="data.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
