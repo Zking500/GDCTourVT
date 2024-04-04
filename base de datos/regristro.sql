@@ -28,31 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `ID_User` int(11) NOT NULL,
+  `ID_User` int(11) NOT NULL AUTO_INCREMENT,
   `Correo_User` text NOT NULL,
   `Name_User` varchar(50) NOT NULL,
-  `Password_User` varchar(25) NOT NULL
+  `Password_User` varchar(25) NOT NULL,
+  PRIMARY KEY (`ID_User`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_User`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

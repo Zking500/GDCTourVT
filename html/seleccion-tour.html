@@ -185,70 +185,87 @@ button:hover::before {
 </head>
 
 <body>
-    <!-- Just an image -->
-<nav class="navbar navbar-light bg-body-tertiary shadow-sm p-3 mb-5 bg-body rounded">
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // Si el usuario no ha iniciado sesión, redirigirlo a la página de inicio de sesión
+    header('Location: login.php');
+    exit;
+}
+
+// Función para cerrar sesión
+if (isset($_POST['logout'])) {
+    session_destroy(); // Destruir todas las variables de sesión
+    header('Location: login.php'); // Redirigir a la página de inicio de sesión
+    exit;
+}
+?>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-light bg-body-tertiary shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="container">
+          <a class="navbar-brand" href="https://www.astrazeneca.mx/" target="_blank" rel="noopener noreferrer">
+            <img src="/img/logo.png" height="50" alt="MDB Logo" loading="lazy"/>
+          </a>
+        </div>
+    
+        <!-- Botón de logout -->
+        <form method="post">
+            <button type="submit" name="logout" class="btn btn-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                </svg>
+                <span>Logout</span>
+            </button>
+        </form>
+    </nav>
+
+    <!-- Contenido de la página -->
+    <h1 class="text-center">Select the tour</h1><br><br><br>
+        
     <div class="container">
-      <a class="navbar-brand" href="https://www.astrazeneca.mx/" target="_blank" rel="noopener noreferrer">
-        <img
-          src="/img/logo.png"
-          height="50"
-          alt="MDB Logo"
-          loading="lazy"
-        />
-      </a>
-    </div>
+        <!-- Aquí van las tarjetas de tours -->
+        <div class="card" style="--rating:90"></div>
 
-    <a href="/index.html"><button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
-            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-          </svg>
-        <span>Logout</span>
-    </button></a>
-  </nav>
+        <div class="card" style="--rating:90">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+            </svg></div>
+            <div class="title">Software area</div>
+            <p class="description">Creation of software for patient monitoring, clinical data management and tools for analyzing clinical trial results.</p>
+            <div></div>
+            <a href="../piso_1/app-files/tour_test.html" class="link">GO</a>
+        </div>
 
-  <h1 class="text-center">Select the tour</h1><br><br><br>
+        <div class="card" style="--rating:90"></div>
     
-  <div class="container">
-    <div class="card" style="--rating:90">
-        
+        <div class="card" style="--rating:90">
+            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+                <path d="M12.496 8a4.5 4.5 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11q.04.3.04.61"/>
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.5 4.5 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8m-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0-.288-.376l-.808.27z"/>
+            </svg></div>
+            <div class="title">Technical Center</div>
+            <p class="description">It focuses on innovation and scientific excellence to create advanced medicines and treatments for various diseases.</p>
+            <div></div>
+            <a href="../piso_4/app-files/tour_centro.html" class="link">GO</a>
+        </div>
     </div>
+    <br><br><br><br>
 
-    <div class="card" style="--rating:90">
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
-            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
-          </svg></div>
-        <div class="title">Software area</div>
-        <p class="description">Creation of software for patient monitoring, clinical data management and tools for analyzing clinical trial results.</p>
-        <div></div>
-        <a href="../piso_1/app-files/tour_test.html" class="link">GO</a>
-      </div>
+    <!-- Pie de página -->
+    <footer class="bg-body-tertiary text-center text-lg-start bg-dark">
+        <!-- Copyright -->
+        <div class="text-center p-3 text-white mb-3 mb-md-0" style="background-color: rgba(0, 0, 0, 0.05);">
+          Copyright © 2024. All rights reserved.
+        </div>
+        <!-- Copyright -->
+    </footer>
 
-      <div class="card" style="--rating:90">
-        
-      </div>
-    
-      <div class="card" style="--rating:90">
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
-            <path d="M12.496 8a4.5 4.5 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11q.04.3.04.61"/>
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.5 4.5 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8m-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27z"/>
-          </svg></div>
-        <div class="title">technical Center</div>
-        <p class="description">It focuses on innovation and scientific excellence to create advanced medicines and treatments for various diseases.</p>
-        <div></div>
-        <a href="../piso_4/app-files/tour_centro.html" class="link">GO</a>
-      </div>
-  </div><br><br><br><br>
-
-        <footer class="bg-body-tertiary text-center text-lg-start bg-dark">
-            <!-- Copyright -->
-            <div class="text-center p-3 text-white mb-3 mb-md-0" style="background-color: rgba(0, 0, 0, 0.05);">
-              Copyright © 2024. All rights reserved.
-            </div>
-            <!-- Copyright -->
-          </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
