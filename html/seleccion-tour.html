@@ -1,113 +1,254 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UFT-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GDC-TOURVT</title>
-        <!--Implementación de bootstrap-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <style>/*Espacio de CSS internos para el diseño de la pagina*/
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDC-TourVT</title>
+  <link rel="icon" type="image/png" href="../img/empresa.png">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+   button {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgb(149, 0, 15);
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
 
-            /*Caracteristicas del contenedor*/
-            .container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            }
-            /*Modificación de clase row, con esta se colocan textos simples*/
-             .row {
-            font-family: "Times New Roman", sans-serif;
-            padding: 20px;
-            }
-            /*Clases para modificar diseño de botones*/
-            .btn {
-            padding: 1rem 2rem;
-            font-weight: 700;
-            background: rgb(255, 255, 255);
-            color: blueviolet;
-            border-radius: .5rem;
-            border-bottom: 2px solid blueviolet;
-            border-right: 2px solid blueviolet;
-            border-top: 2px solid white;
-            border-left: 2px solid white;
-            transition-duration: 1s;
-            transition-property: border-top, 
-                border-left, 
-                border-bottom,
-                border-right,
-                box-shadow;
-            }
+button span {
+  margin: 6px;
+}
 
-            .btn:hover {
-            border-top: 2px solid rgb(rgb(127, 37, 87,));
-            border-left: 2px solid rgb(rgb(127, 37, 87,));
-            border-bottom: 2px solid rgb(rgb(127, 37, 87,));
-            border-right: 2px solid rgb(238, 103, 238);
-            box-shadow: rgba(47, 40, 116, 0.4) 5px 5px, rgba(47, 40, 116, 0.3) 10px 10px, rgba(47, 40, 116, 0.2) 15px 15px;
-            }
-            /*Clases para diseño y posición de imágenes*/
-            .image-container {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            }
+button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
 
-            .imagen-pequena {
-            width: 180px;
-            height: auto;
-            }
+button:hover {
+  color: #fff;
+  border: 1px solid rgb(149, 0, 15);
+}
 
-            .imagen-superior-izquierda {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px; 
-            height: auto; 
-            z-index: -1; 
-            }
-            /*Clases para diseño de textos*/
-            .titulo {
-                color: #e4ac3f;
-            }
+button:hover::before {
+  box-shadow: inset 0 0 0 10em rgb(149, 0, 15);
+}
+ 
 
-            .letra-mediana {
-                font-size: 24px;
-                font-weight: 900;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <!--Espacio del cuerpo de la página-->>
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-sm-12 text-center titulo">
-                    <h1 class="display-3 mb-4 letra-mediana">Lista de Areas </h1>
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col">
-                    <a href="../piso_1/app-files/tour_test.html" class="btn ">Areas del primer piso</a>
-                </div>
-                <div class="col">
-                    <a href="../piso_4/app-files/tour_centro.html" class="btn ">Areas del segundo piso</a>
-                </div>
-            </div>
-        </div>
+.card {
+  --background: #fff;
+  --cardShadow: rgba(32,33,37,.1);
+  --cardShadowHover: rgba(32,33,37,.06);
+  --cardShadowActive: rgba(32,33,37,.55);
+  --cardBorder: #dbdce0;
+  --cardBorderActive: #1a73e8;
+  --textColor: #202125;
+  --linkColor: #1967d2;
+  --ratingColor: #faab00;
+}
 
+@media (prefers-color-scheme: dark) {
+  .card {
+    --background: #3c4043;
+    --cardShadow: rgba(0,0,0,.28);
+    --cardShadowHover: rgba(0,0,0,.16);
+    --cardShadowActive: rgba(0,0,0,.55);
+    --cardBorder: #202125;
+    --cardBorderActive: #8ab4f8;
+    --textColor: #e9eaee;
+    --linkColor: #8ab4f8;
+  }
+}
 
-        <div class="image-container">
-            <img src="../imagenes/Logo_Astrazeneca.png" alt="AstraZeneca" class="imagen-pequena">
-        </div>
+.card {
+  width: 250px;
+  height: 350px;
+  aspect-ratio: 2/3;
+  background: var(--background);
+  color: var(--textColor);
+  border: 1px solid var(--cardBorder);
+  padding: 25px;
+  box-shadow: 8px 8px 0 var(--cardShadow);
+  transition: box-shadow .5s, transform .5s;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.card:hover {
+  transform: translate(-2px, -4px);
+  box-shadow: 16px 16px 0 var(--cardShadowHover);
+}
+
+.card:active {
+  transform: translate(-2px, -4px);
+  border: 2px solid var(--cardBorderActive);
+  box-shadow: 4px 4px 0 var(--cardShadowActive);
+}
+
+.card > .icon,
+.card > .title,
+.card > .description {
+  margin-bottom: 0.7em;
+  cursor: default;
+  user-select: none;
+}
+
+.card > .title {
+  margin-top: 1.5em;
+  font-weight: bold;
+}
+
+.card > .description {
+  line-height: 1.5em;
+  min-height: 6em;
+}
+
+.card > .icon {
+  font-size: 3em;
+  margin-bottom: .2em;
+}
+
+.card > .rating {
+  font-size: 1.5em;
+  margin-bottom: 0.8em;
+  color: var(--ratingColor);
+  font-weight: bold;
+  position: relative;
+  width: max-content;
+}
+
+.card > .rating:before {
+  content: "☆☆☆☆☆";
+}
+
+.card > .rating:after {
+  content: "★★★★★";
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  width: calc(var(--rating) * 1%);
+  overflow: hidden;
+}
+
+.card > .link {
+  margin-bottom: 1rem;
+  color: var(--linkColor);
+  font-size: .8em;
+  font-weight: 600;
+}
+
+/* Optional ~ Link the whole card */
+.card > .link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card > .link:after {
+  content: "↗";
+  display: inline-block;
+  margin-left: .3em;
+  transition: transform .3s ease-in-out;
+}
+
+.card:hover > .link:after {
+  transform: translate(.2em, -.2em);
+}
+
+  </style>
+</head>
+
+<body>
+    <!-- Just an image -->
+<nav class="navbar navbar-light bg-body-tertiary shadow-sm p-3 mb-5 bg-body rounded">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.astrazeneca.mx/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="/img/logo.png"
+          height="50"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+    </div>
+
+    <a href="/index.html"><button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+          </svg>
+        <span>Logout</span>
+    </button></a>
+  </nav>
+
+  <h1 class="text-center">Select the tour</h1><br><br><br>
     
-        <img src="../imagenes/GDCTourVirtualLogo.jpeg" alt="GDCTourVirtual" class= "imagen-superior-izquierda imagen-pequena">
+  <div class="container">
+    <div class="card" style="--rating:90">
+        
+    </div>
 
-        <!--Implementación de archivos javascript para garantizar el funcionamiento del bootstrap-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
+    <div class="card" style="--rating:90">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+          </svg></div>
+        <div class="title">Software area</div>
+        <p class="description">Creation of software for patient monitoring, clinical data management and tools for analyzing clinical trial results.</p>
+        <div></div>
+        <a href="/piso_1/app-files/tour_test.html" class="link">GO</a>
+      </div>
+
+      <div class="card" style="--rating:90">
+        
+      </div>
+    
+      <div class="card" style="--rating:90">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-wrench-adjustable-circle" viewBox="0 0 16 16">
+            <path d="M12.496 8a4.5 4.5 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11q.04.3.04.61"/>
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-1 0a7 7 0 1 0-13.202 3.249l1.988-1.657a4.5 4.5 0 0 1 7.537-4.623L7.497 6.5l1 2.5 1.333 3.11c-.56.251-1.18.39-1.833.39a4.5 4.5 0 0 1-1.592-.29L4.747 14.2A7 7 0 0 0 15 8m-8.295.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27z"/>
+          </svg></div>
+        <div class="title">technical Center</div>
+        <p class="description">It focuses on innovation and scientific excellence to create advanced medicines and treatments for various diseases.</p>
+        <div></div>
+        <a href="/piso_4/app-files/tour_centro.html" class="link">GO</a>
+      </div>
+  </div><br><br><br><br>
+
+        <footer class="bg-body-tertiary text-center text-lg-start bg-dark">
+            <!-- Copyright -->
+            <div class="text-center p-3 text-white mb-3 mb-md-0" style="background-color: rgba(0, 0, 0, 0.05);">
+              Copyright © 2024. All rights reserved.
+            </div>
+            <!-- Copyright -->
+          </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

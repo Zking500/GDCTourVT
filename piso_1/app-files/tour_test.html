@@ -8,29 +8,32 @@
   <link rel="stylesheet" href="vendor/reset.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="multiple-scenes view-control-buttons">
+<body class="multiple-scenes view-control-buttons" onload="mostrarImagen('../../minimapa/Piso 1 Area 1.png')">
 
 <div id="pano"></div>
 
 <div id="sceneList">
   <ul class="scenes">
     
-      <a href="javascript:void(0)" class="scene" data-id="0-programacin">
+      <a href="javascript:void(0)" class="scene" data-id="0-programacin" onclick="mostrarImagen('../../minimapa/Piso 1 Area 1.png')">
         <li class="text">Programación</li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="1-ac">
+      <a href="javascript:void(0)" class="scene" data-id="1-ac" onclick="mostrarImagen('../../minimapa/Piso 1 Area 2.png')">
         <li class="text">AC</li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="2-marketing-">
+      <a href="javascript:void(0)" class="scene" data-id="2-marketing-" onclick="mostrarImagen('../../minimapa/Piso 1 Area 3.png')">
         <li class="text">Marketing </li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="3-descanso-">
+      <a href="javascript:void(0)" class="scene" data-id="3-descanso-" onclick="mostrarImagen('../../minimapa/Piso 1 Area 4.png')">
         <li class="text">Descanso </li>
       </a>
-    
+
+      <a href="../../html/seleccion-tour.html" class="scene">
+        <li class="text">Regresar</li>
+      </a>
   </ul>
 </div>
 
@@ -72,12 +75,21 @@
   <img class="icon" src="img/minus.png">
 </a>
 
+<div id="imageContainer"></div>
+
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
 <script src="vendor/marzipano.js" ></script>
 
 <script src="data.js"></script>
 <script src="index.js"></script>
-
+<!-- funcion del minimapa-->
+<script>
+    function mostrarImagen(src) {
+    var container = document.getElementById("imageContainer");
+    container.innerHTML = '<img src="' + src + '">';
+    container.style.display = "block";
+  }
+</script>
 </body>
 </html>

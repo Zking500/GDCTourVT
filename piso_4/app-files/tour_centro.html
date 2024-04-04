@@ -8,33 +8,36 @@
   <link rel="stylesheet" href="vendor/reset.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="multiple-scenes view-control-buttons">
+<body class="multiple-scenes view-control-buttons" onload="mostrarImagen('../../minimapa/Piso 4 Area 1.png')">
 
 <div id="pano"></div>
 
 <div id="sceneList">
   <ul class="scenes">
     
-      <a href="javascript:void(0)" class="scene" data-id="0-marketing">
+      <a href="javascript:void(0)" class="scene" data-id="0-marketing" onclick="mostrarImagen('../../minimapa/Piso 4 Area 1.png')">
         <li class="text">Marketing</li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="1-recursos-humanos">
+      <a href="javascript:void(0)" class="scene" data-id="1-recursos-humanos" onclick="mostrarImagen('../../minimapa/Piso 4 Area 2.png')">
         <li class="text">Recursos humanos</li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="2-seguridad-">
+      <a href="javascript:void(0)" class="scene" data-id="2-seguridad-" onclick="mostrarImagen('../../minimapa/Piso 4 Area 3.png')">
         <li class="text">Seguridad </li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="3-psicloga-">
+      <a href="javascript:void(0)" class="scene" data-id="3-psicloga-" onclick="mostrarImagen('../../minimapa/Piso 4 Area 4.png')">
         <li class="text">Psicóloga </li>
       </a>
     
-      <a href="javascript:void(0)" class="scene" data-id="4-contadura">
+      <a href="javascript:void(0)" class="scene" data-id="4-contadura" onclick="mostrarImagen('../../minimapa/Piso 4 Area 5.png')">
         <li class="text">Contaduría</li>
       </a>
-    
+
+      <a href="../../html/seleccion-tour.html" class="scene">
+        <li class="text">Regresar</li>
+      </a>
   </ul>
 </div>
 
@@ -76,6 +79,8 @@
   <img class="icon" src="img/minus.png">
 </a>
 
+<div id="imageContainer"></div>
+
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
 <script src="vendor/marzipano.js" ></script>
@@ -83,5 +88,13 @@
 <script src="data.js"></script>
 <script src="index.js"></script>
 
+<!-- funcion del minimapa-->
+<script>
+  function mostrarImagen(src) {
+  var container = document.getElementById("imageContainer");
+  container.innerHTML = '<img src="' + src + '">';
+  container.style.display = "block";
+}
+</script>
 </body>
 </html>
